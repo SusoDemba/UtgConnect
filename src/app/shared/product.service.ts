@@ -15,19 +15,33 @@ export interface Product {
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:5000/api/products';
+  private baseUrl = 'http://localhost:5000/api/products'; // Backend URL
 
   constructor(private http: HttpClient) {}
 
+  // Fetch all products
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseUrl);
   }
 
-  getProductById(id: string) {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  // Get product by ID
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/${id}`);
   }
 
-  addProduct(data: any) {
-    return this.http.post(this.baseUrl, data);
+  // Add a product
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.baseUrl, product);
   }
+
+  // Update a product
+  // updateProduct(productId: string, product: Product): Observable<Product> {
+  //   return this.http.put<Product>(`${this.baseUrl}/${productId}`, product);
+  // }
+
+  // Delete a product
+  // deleteProduct(productId: string): Observable<void> {
+  //   return this.http.delete<void>(`${this.baseUrl}/${productId}`);
+  // }
+
 }

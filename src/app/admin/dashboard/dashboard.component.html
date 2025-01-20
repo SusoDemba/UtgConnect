@@ -1,18 +1,28 @@
-<div class="content-wrapper">
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-                <p>New Products</p>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="dashboard-container">
+  <h1>Admin Dashboard</h1>
+
+  <div class="metrics">
+    <div class="metric-card">
+      <h3>Total Products</h3>
+      <p>{{ metrics.totalProducts }}</p>
+    </div>
+    <div class="metric-card">
+      <h3>Total Users</h3>
+      <p>{{ metrics.totalUsers }}</p>
+    </div>
+    <div class="metric-card">
+      <h3>Recent Sales</h3>
+      <p>{{ metrics.recentSales }}</p>
+    </div>
   </div>
-  
+
+  <div class="recent-activities">
+    <h2>Recent Activities</h2>
+    <ul>
+      <li *ngFor="let activity of recentActivities">
+        <!-- <span>{{ activity.time | date: 'short' }}</span> -->
+        <span>{{ activity.message }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

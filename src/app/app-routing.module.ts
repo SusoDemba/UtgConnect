@@ -15,6 +15,7 @@ export const routes: Routes = [
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'add-product', component: AddProductComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'admin/dashboard', component: DashboardComponent },
   { path: '**', redirectTo: '' }
 ];
 
