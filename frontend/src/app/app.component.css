@@ -1,0 +1,22 @@
+/* Global styles for app.component */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .navbar-brand img {
+    height: 30px;
+    margin-right: 10px;
+  }
+  

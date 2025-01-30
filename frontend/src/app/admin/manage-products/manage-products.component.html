@@ -1,0 +1,73 @@
+<div class="manage-products-container">
+    <h1>Manage Products</h1>
+  
+    <!-- Success and Error Messages -->
+    <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  
+    <!-- Product Form -->
+    <form (ngSubmit)="editingProduct ? updateProduct() : addProduct()">
+      <div>
+        <label for="name">Product Name</label>
+        <input id="name" formControlName="name" type="text" placeholder="Enter product name" />
+        <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+          Product name is required (min 3 characters).
+        </div>
+      </div>
+  
+      <div>
+        <label for="price">Price</label>
+        <input id="price" formControlName="price" type="number" placeholder="Enter price" />
+        <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+          Valid price is required.
+        </div>
+      </div>
+  
+      <div>
+        <label for="image">Image Url</label>
+        <input id="image" formControlName="image" type="text" placeholder="Enter image" />
+        <div *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched">
+          Image is required.
+        </div>
+      </div>
+  
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" placeholder="Enter description"></textarea>
+        <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched">
+          Description is required.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="productForm.invalid">
+        {{ editingProduct ? 'Update Product' : 'Add Product' }}
+      </button>
+      <button *ngIf="editingProduct" type="button" (click)="cancelEdit()">Cancel</button>
+    </form>
+  
+    <!-- Product List -->
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Image</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.image }}</td>
+          <td>{{ product.description }}</td>
+          <td>
+            <button (click)="editProduct(product)">Edit</button>
+            <button (click)="deleteProduct(product.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

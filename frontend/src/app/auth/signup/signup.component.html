@@ -1,0 +1,109 @@
+<div class="signup-page">
+  <div class="signup-box">
+    <div class="signup-logo">
+      <a href="#"><b>Utg</b>Connect</a>
+    </div>
+    <!-- /.signup-logo -->
+    <div class="card">
+      <div class="card-body signup-card-body">
+        <p class="signup-box-msg">Register to start using the platform</p>
+
+        <form [formGroup]="signUpForm"(ngSubmit)=" onSubmit()" >
+          <!-- Full Name Input -->
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Full Name"
+              
+              formControlName="username"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Email Input -->
+          <div class="input-group mb-3">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              
+             formControlName="email"
+              required
+              email
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Password Input -->
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              
+             formControlName="password"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Confirm Password Input -->
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Confirm Password"
+              
+              formControlName="confirmPassword"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Submit Button -->
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="agreeTerms"  name="termsAccepted" />
+                <label for="agreeTerms">
+                  I agree to the <a href="#">terms</a>
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+               
+                
+              >
+                Sign Up
+              </button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <p class="mb-0">
+          <a routerLink="/login" class="text-center">I already have an account</a>
+        </p>
+      </div>
+      <!-- /.signup-card-body -->
+    </div>
+  </div>
+</div>

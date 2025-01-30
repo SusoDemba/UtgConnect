@@ -1,0 +1,63 @@
+<div class="manage-users-container">
+    <h1>Manage Users</h1>
+  
+    <!-- Success and Error Messages -->
+    <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  
+    <!-- User Form -->
+    <form (ngSubmit)="editingUser ? updateUser() : addUser()">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text" placeholder="Enter name" />
+        <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+          Name is required (min 3 characters).
+        </div>
+      </div>
+  
+      <div>
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" placeholder="Enter email" />
+        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+          Valid email is required.
+        </div>
+      </div>
+  
+      <div>
+        <label for="role">Role</label>
+        <select id="role" formControlName="role">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+  
+      <button type="submit" [disabled]="userForm.invalid">
+        {{ editingUser ? 'Update User' : 'Add User' }}
+      </button>
+      <button *ngIf="editingUser" type="button" (click)="cancelEdit()">Cancel</button>
+    </form>
+  
+    <!-- User List -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <button (click)="editUser(user)">Edit</button>
+            <button (click)="deleteUser(user.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
