@@ -1,0 +1,84 @@
+/* Centered container for product details */
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 0 15px;
+  }
+  
+  /* Product card */
+  .card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Product image */
+  .card img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  /* Card content */
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  
+  .text-muted {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  /* Buttons */
+  .card-body button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .card-body button.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .card-body button.btn-secondary:hover {
+    background-color: #545b62;
+    transform: translateY(-3px);
+  }
+  
+  .card-body button.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .card-body button.btn-danger:hover {
+    background-color: #b02a37;
+    transform: translateY(-3px);
+  }
